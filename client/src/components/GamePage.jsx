@@ -3,7 +3,7 @@ import { Container, Row, Col, Table, Button, Image, Form } from 'react-bootstrap
 import { useNavigate, Outlet, useLocation } from 'react-router-dom';
 import { GameContext } from './GameContext';
 
-const GamePage = () => {
+const GamePage = (props) => {
   const { 
     recordCorrectCaption, 
     clearGameData, 
@@ -192,10 +192,19 @@ const GamePage = () => {
           ) : (
             <>
               <Row className="containerStyle mx-1 my-5 d-flex align-items-center justify-content-center flex-grow-1">
-                <Col md={12} className="mb-0 d-flex flex-column align-items-center justify-content-center">
-                  <h1 className='text-white w-100 text-center'>Total score: {gameData.score}</h1>
-                  <h2 className='text-white w-100 text-center'>{`Time left: ${gameData.timeLeft}s`}</h2>
-                </Col>
+              {props.loggedIn ? 
+                (
+                  <Col md={12} className="mb-0 d-flex flex-column align-items-center justify-content-center">
+                    <h1 className='text-white w-100 text-center'>Total score: {gameData.score}</h1>
+                    <h2 className='text-white w-100 text-center'>{`Time left: ${gameData.timeLeft}s`}</h2>
+                  </Col>
+                ) 
+                :(
+                  <Col md={12} className="my-3 d-flex flex-column align-items-center justify-content-center">
+                    <h1 className='text-white w-100 text-center'>{`Time left: ${gameData.timeLeft}s`}</h1>
+                  </Col>
+                )
+              }
                 <Col className="d-flex justify-content-between w-100 mx-2 mb-3 px-2">
                   <Col className="w-50 me-1">
                     <Button variant="success" className="w-100" onClick={handleHome}>Home</Button>
