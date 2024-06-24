@@ -1,0 +1,67 @@
+//for starting the game
+GET http://localhost:3001/api/play
+
+###
+
+POST http://localhost:3001/api/sessions
+Content-Type: application/json
+
+{
+  "username": "ale@esempio.com",
+  "password": "esempio"
+}
+
+###
+
+GET http://localhost:3001/api/sessions/current
+
+###
+
+DELETE http://localhost:3001/api/sessions/current
+
+###
+
+GET http://localhost:3001/api/user
+
+###
+
+POST http://localhost:3001/api/user
+Content-Type: application/json
+
+{
+  "score": 10,
+  "game": [
+    { "round": 1, "meme": "/images/meme10.jpg", "score": 5 },
+    { "round": 2, "meme": "/images/meme2.jpg", "score": 0 },
+    { "round": 3, "meme": "/images/meme3.jpg", "score": 5 }
+  ]
+}
+###
+
+GET http://localhost:3001/api/user/2
+
+
+###
+POST http://localhost:3001/api/register
+Content-Type: application/json
+
+{
+  "name": "Simone",
+  "surname": "Baccaro",
+  "email": "simo@libero.com",
+  "password": "sonoScemo"
+}
+
+###
+
+PUT http://localhost:3001/api/user
+Content-Type: application/json
+
+{
+  "user_id": "1",
+  "name": "Alessandro",
+  "surname": "Esempio",
+  "email": "ale@esempio.com"
+}
+
+###
