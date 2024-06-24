@@ -45,18 +45,51 @@ const GameEnd = (props) => {
         <Container fluid className="d-flex justify-content-center align-items-center">
             <Col xs={8} className="d-flex flex-column mt-4" style={{ backgroundColor: 'transparent' }}>
                 <Row className='containerStyle pt-3 mt-5'>
-                <h1 className='text-white w-100 text-center'>Total Score: {gameData.score}</h1>
                 {gameData.correctCaptions.length === 0 ? (
                     <>
-                    <h4 className='text-white w-100 text-center'>Try again, you will be luckier</h4>
-                    <Row className="d-flex justify-content-center align-items-center h-100">
-                        <Col xs={4} className="d-flex justify-content-center align-items-center p-0 m-5">
-                        <Image src={gameEndImg} className="w-100 animate__animated animate__zoomIn" />
-                        </Col>
-                    </Row>
+                    {props.loggedIn ? 
+                        (
+                            <>
+                                <h1 className='text-white w-100 text-center'>Total Score: {gameData.score}</h1>
+                                <h4 className='text-white w-100 text-center'>Try again, you will be luckier</h4>
+                                <Row className="d-flex justify-content-center align-items-center h-100">
+                                    <Col xs={4} className="d-flex justify-content-center align-items-center p-0 m-5">
+                                    <Image src={gameEndImg} className="w-100 animate__animated animate__zoomIn" />
+                                    </Col>
+                                </Row>
+                            </>
+
+                        ) 
+                        : (
+                            <>
+                            <h1 className='text-white w-100 text-center'>Try again, you will be luckier !</h1>
+                            <Row className="d-flex justify-content-center align-items-center h-100">
+                                <Col xs={4} className="d-flex justify-content-center align-items-center p-0 m-5">
+                                <Image src={gameEndImg} className="w-100 animate__animated animate__zoomIn" />
+                                </Col>
+                            </Row>
+                        </>
+                        )
+                    }
+                    
                     </>
                 ) : (
-                    renderItem([...gameData.correctCaptions])
+                    <>
+                    {props.loggedIn ? 
+                        (<>
+                            <h1 className='text-white w-100 text-center'>Total Score: {gameData.score}</h1>
+                            {renderItem([...gameData.correctCaptions])}
+                         </>
+                        ) 
+                        : (
+                            <>
+                                <h1 className='text-white w-100 text-center'>You guessed the right caption! </h1>
+                                {renderItem([...gameData.correctCaptions])}
+                            </>
+                        )
+                           
+                    }
+                    </>
                 )}
                 <Col className="d-flex justify-content-between w-100 mx-3 mb-4 px-2">
                     <Button variant="success" className="w-50" onClick={handleHome}>Home</Button>
