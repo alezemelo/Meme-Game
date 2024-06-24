@@ -4,9 +4,9 @@ import {getGamesHistory, createGameHistory, clearGameTables, getGamesByGhId} fro
 import {getCaptionsToGame} from './caption-dao.mjs'
 
 
-/*
+
 // Example usage: Fetch captions for meme_id = 1
-const memeId = 2;
+const memeId = 8;
 getCaptionsToGame(memeId)
     .then(captions => {
         console.log(`Captions for meme_id ${memeId}:`);
@@ -15,7 +15,7 @@ getCaptionsToGame(memeId)
     .catch(err => {
         console.error('Error fetching captions:', err);
     });
-
+/*
 
 const limit = 3;
 getRandomMemes(limit)
@@ -136,7 +136,7 @@ createGameHistory(user_id, score, game)
     console.error("Error fetching random memes:", err);
 });
 
-*/
+
 clearGameTables()
     .then(message => {
         console.log(message); // Output: Deleted X rows (X being the number of rows deleted)
@@ -144,7 +144,7 @@ clearGameTables()
     .catch(err => {
         console.error('Error deleting games data:', err);
     });
-/*
+
 const gh_id=2
 getGamesByGhId(gh_id)
     .then(meme => {
