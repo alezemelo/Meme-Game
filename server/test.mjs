@@ -1,6 +1,6 @@
 import { getMeme} from './meme-dao.mjs';  // Adjust path as per your project structure
-import {registerUser, getUser, deleteUser} from './user-dao.mjs';
-import {getGamesHistory, createGameHistory, clearGameTables, getGamesByGhId} from './game_history-dao.mjs';
+import {registerUser, getUser} from './user-dao.mjs';
+import {getGamesHistory, createGameHistory, getGamesByGhId} from './game_history-dao.mjs';
 import {getCaptionsToGame} from './caption-dao.mjs'
 
 
@@ -52,14 +52,7 @@ registerUser(name, surname, email, password)
     console.error('Error registering user:', err);
     });
 
-const user_id = 3;    
-deleteUser(user_id)
-    .then(() => {
-      console.log('User deleted successfully');
-    })
-    .catch(err => {
-      console.error('Error deleting user:', err.message);
-    });
+
 
 const email = 'user@example.com';
 const password = 'securepassword';
@@ -136,15 +129,7 @@ createGameHistory(user_id, score, game)
     console.error("Error fetching random memes:", err);
 });
 
-*/
-clearGameTables()
-    .then(message => {
-        console.log(message); // Output: Deleted X rows (X being the number of rows deleted)
-    })
-    .catch(err => {
-        console.error('Error deleting games data:', err);
-    });
-/*
+
 const gh_id=2
 getGamesByGhId(gh_id)
     .then(meme => {

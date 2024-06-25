@@ -64,7 +64,6 @@ app.use(passport.authenticate('session'));
 
 
 
-// Caption and Meme get
 app.get('/api/play', async (req, res) => {
   try {
       let memes = [];
@@ -137,7 +136,7 @@ app.get('/api/user', isLoggedIn, async (req, res) => {
 
 app.post('/api/user', isLoggedIn, [
   check('score').isNumeric(),
-  check('game').isArray() // Validate that 'game' is an array
+  check('game').isArray() 
 ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -150,7 +149,6 @@ app.post('/api/user', isLoggedIn, [
   try {
       const gh_id = await createGameHistory(userId, score, game);
 
-      // Construct response object with all attributes
       const responseData = {
           gh_id: gh_id,
           score: score,

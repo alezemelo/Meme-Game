@@ -126,30 +126,4 @@ export const getUserIdByEmail = (email) => {
 }
 
 
-//for testing purposes 
-export const deleteUser = (user_id) => {
-    return new Promise((resolve, reject) => {
-        const deleteSql = 'DELETE FROM users_table WHERE user_id = ?';
-        const resetSql = 'DELETE FROM sqlite_sequence WHERE name = "users_table"';
 
-        db.serialize(() => {
-            // First, delete the user
-            db.run(deleteSql, [user_id], function (err) {
-                if (err) {
-                    return reject(err);
-                }
-                if (this.changes === 0) {
-                    return reject(new Error('No user found with the provided user id'));
-                }
-
-                // Reset the auto-increment value
-                db.run(resetSql, (err) => {
-                    if (err) {
-                        return reject(err);
-                    }
-                    resolve();
-                });
-            });
-        });
-    });
-};
