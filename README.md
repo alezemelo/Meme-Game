@@ -1,38 +1,71 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/AVMm0VzU)
-# Exam #1: "Meme Game"
-## Student: s334267 BOSCOLO ZEMELO ALESSANDRO 
+<!-- markdownlint-disable MD013 -->
 
-## React Client Application Routes
+# React Client Application Routes
 
-- Route `/`: Home page of the applications in which you can chose to log-in or to do a single round game by pressing the button 'quick play'.
+- Route `/`: Home page of the applications in which you can chose to log-in or
+  to do a single round game by pressing the button 'quick play'.
 - Route `/login`: Page to log-in a user by inserting email and password.
-- Route `/register`: Page that can be accesed by the log-in page if you don't have an accounti in which by specifing name, surname, email and password, you can register to the website.
-- Route `/play`: Page to render the game. It will be rendered a meme image, all the captions correleted to it and a component to see if the selected caption is right or wrong after submitting (Outlet). 
-- Route `/play/wrong`: It's used to display the Wrong component if the selected and submitted caption for a given meme is wrong. Based on the fact that the user is authenticated or not, it will render a 'End Game' button or a 'Next Round'.
-- Route `/play/correct`: It's used to display the Correct component if the selected and submitted caption for a given meme is correct. Based on the fact that the user is authenticated or not, it will render a 'End Game' button or a 'Next Round'.
-- Route `/play/timeExpires`: It's used to display the TimeExpires component after the time expires if the user did not select any caption and press submit. Based on the fact that the user is authenticated or not, it will render a 'End Game' button or a 'Next Round'.
-- Route `/gameEnd`: Page to resume the game result with all the meme image and the corresponding captions that were correct (if any). From here, using buttons, you can retry or go in the homepage.
-- Route `/user`: Page that can be accessed only by authenticated users. It shows users informations that can be modified and saved, like: name, surname and email. It aslso shows the games history, so the resume of each game with the game date, hours, poins and a button to see the details (meme image of the game, the corresponding rounds and points).
-
+- Route `/register`: Page that can be accesed by the log-in page if you don't
+  have an accounti in which by specifing name, surname, email and password, you
+  can register to the website.
+- Route `/play`: Page to render the game. It will be rendered a meme image, all
+  the captions correleted to it and a component to see if the selected caption
+  is right or wrong after submitting (Outlet).
+- Route `/play/wrong`: It's used to display the Wrong component if the selected
+  and submitted caption for a given meme is wrong. Based on the fact that the
+  user is authenticated or not, it will render a 'End Game' button or a 'Next
+  Round'.
+- Route `/play/correct`: It's used to display the Correct component if the
+  selected and submitted caption for a given meme is correct. Based on the fact
+  that the user is authenticated or not, it will render a 'End Game' button or a
+  'Next Round'.
+- Route `/play/timeExpires`: It's used to display the TimeExpires component
+  after the time expires if the user did not select any caption and press
+  submit. Based on the fact that the user is authenticated or not, it will
+  render a 'End Game' button or a 'Next Round'.
+- Route `/gameEnd`: Page to resume the game result with all the meme image and
+  the corresponding captions that were correct (if any). From here, using
+  buttons, you can retry or go in the homepage.
+- Route `/user`: Page that can be accessed only by authenticated users. It shows
+  users informations that can be modified and saved, like: name, surname and
+  email. It aslso shows the games history, so the resume of each game with the
+  game date, hours, poins and a button to see the details (meme image of the
+  game, the corresponding rounds and points).
 
 ## Main React Components
 
-- `App` (in `App.jsx`): Component that render the whole app and specifies the routes. It cointains also different handle functions that has to be used as props in different componenets (ex: handleLogin).
-- `HomepageComponent` (in `HomepageComponent.jsx`): It renders the home page by rendering the logo image and 2 buttons: Login and Quick Play if the user is logged in, or LogOut and Play if user already logge-in.
-- `LoginPage` (in `LoginPage.jsx`): Used to loggin. It renders a form in which you can insert the email and the password to log-in. On submit, the values inserted are passed up to the `App` component (in `App.jsx` ) in which with a method we do the API call to the server for verifining the credentials. If something goes wrong, we set a message to be passed to the component in orderd to inform the user.
-- `RegisterPage` (in `RegisterPage.jsx`): As the LoginPage, the RegisterPage components contains a form in which you can insert information for register: name, surname, email, password. Also here it's use an Alert component to shows if something went wrong during the registration.
-- `UserProfile` (in `Userinfo.jsx`): Component that renders the user information: name, surname and email. Those information can be change by pressing the save button which calls the handleUpdate prop function.
-- `NavHeaderHomepage` (in `NavHeaderHomepage.jsx`): Component that renders a Navbar component which contains the user logo and the page logo.
-- `GameProvider` (in `GameContext.jsx`): Component that provides, thanks to the Context, the data and the methods for the game logic.
-
-
+- `App` (in `App.jsx`): Component that render the whole app and specifies the
+  routes. It cointains also different handle functions that has to be used as
+  props in different componenets (ex: handleLogin).
+- `HomepageComponent` (in `HomepageComponent.jsx`): It renders the home page by
+  rendering the logo image and 2 buttons: Login and Quick Play if the user is
+  logged in, or LogOut and Play if user already logge-in.
+- `LoginPage` (in `LoginPage.jsx`): Used to loggin. It renders a form in which
+  you can insert the email and the password to log-in. On submit, the values
+  inserted are passed up to the `App` component (in `App.jsx` ) in which with a
+  method we do the API call to the server for verifining the credentials. If
+  something goes wrong, we set a message to be passed to the component in orderd
+  to inform the user.
+- `RegisterPage` (in `RegisterPage.jsx`): As the LoginPage, the RegisterPage
+  components contains a form in which you can insert information for register:
+  name, surname, email, password. Also here it's use an Alert component to shows
+  if something went wrong during the registration.
+- `UserProfile` (in `Userinfo.jsx`): Component that renders the user
+  information: name, surname and email. Those information can be change by
+  pressing the save button which calls the handleUpdate prop function.
+- `NavHeaderHomepage` (in `NavHeaderHomepage.jsx`): Component that renders a
+  Navbar component which contains the user logo and the page logo.
+- `GameProvider` (in `GameContext.jsx`): Component that provides, thanks to the
+  Context, the data and the methods for the game logic.
 
 ## API Server
 
 - GET `/api/play`: to get all the game data required for playing
-  - request parameters: __None__
+  - request parameters: **None**
   - response body:
     - if user authenticated:
+
+    ```text
       {
         "memes": [
           {
@@ -78,8 +111,11 @@
           }
         ]
       } ...and other 2 memes
+    ```
 
     - if not authenticated:
+
+    ```text
       {
         "memes": [
           {
@@ -125,49 +161,73 @@
           }
         ]
       }
+    ```
 
-  - response status codes and possible errors: `200 OK`(success) and `500 Internal Server Error` (generic error)
+  - response status codes and possible errors: `200 OK`(success) and
+    `500 Internal Server Error` (generic error)
 
 - POST `/api/sessions`: to log-in with a given email and password.
   - request body content:
+
+  ```text
     {
       "username": "andre@esempio.com",
       "password": "esempio"
     }
-  - response body content: 
+  ```
+
+  - response body content:
+
+  ```text
     {
       "user_id": 2,
       "name": "Andrea",
       "surname": "Esempio",
       "email": "andre@esempio.com"
     }
-  - response status codes and possible errors: `201 Created` (success in loggin), `401 Unauthorized` (wrong credentials), `400 Bad Request` (missing parameters in the req.body)
+  ```
+
+  - response status codes and possible errors: `201 Created` (success in
+    loggin), `401 Unauthorized` (wrong credentials), `400 Bad Request` (missing
+    parameters in the req.body)
 
 - GET `api/sessions/current`: to get the current logged-in user.
-  - request parameters:__None__
+  - request parameters:**None**
   - response body content:
     - 200 OK:
+
+    ```text
       {
         "user_id": 2,
         "name": "Andrea",
         "surname": "Esempio",
         "email": "andre@esempio.com"
       }
+    ```
+
     - 401 Unauthorized:
+
+    ```text
       {
         "error": "Not authenticated"
-      }  
-  - response status codes and possible errors: `200 OK` (success getting the user), `401 Unauthorized` (when there's no user logged in)
+      }
+    ```
 
-- DELETE `/api/sessions/current`: to log out 
-  - request parameters:__None__
-  - response body content: __None__
-  - response status codes and possible errors: `200 OK` (success logging out the user)
+  - response status codes and possible errors: `200 OK` (success getting the
+    user), `401 Unauthorized` (when there's no user logged in)
+
+- DELETE `/api/sessions/current`: to log out
+  - request parameters:**None**
+  - response body content: **None**
+  - response status codes and possible errors: `200 OK` (success logging out the
+    user)
 
 - GET `/api/user`: to retrive the game history of the current logged in user
-  - request parameters:__None__
-  - response body content: 
+  - request parameters:**None**
+  - response body content:
     - 200 OK:
+
+    ```text
       [
         {
           "gh_id": 1,
@@ -200,15 +260,28 @@
           "score": 10
         }
       ]
-    - 401 Unauthorized: 
+    ```
+
+    - 401 Unauthorized:
+
+    ```text
+
       {
         "error": "Not authorized"
       }
-  - response status codes and possible errors: `200 OK` (success retriving the game history), `401 Unauthorized` (when user is not logged in), `404 Not Found` (when game history not found), `500 Internal Server Error` (generic error).
+
+    ```
+
+  - response status codes and possible errors: `200 OK` (success retriving the
+    game history), `401 Unauthorized` (when user is not logged in),
+    `404 Not Found` (when game history not found), `500 Internal Server Error`
+    (generic error).
 
 - POST `/api/user`: for posting a game history (shown in the details)
-  - request parameters:__None__
+  - request parameters:**None**
   - request body content:
+
+  ```text
     {
       "score": 10,
       "game": [
@@ -216,17 +289,21 @@
         { "round": 2, "meme": "/images/meme2.jpg", "score": 0 },
         { "round": 3, "meme": "/images/meme3.jpg", "score": 5 }
       ]
-    } 
-  - response body content: 
-    - 401 Unauthorized: 
+    }
+  ```
+
+  - response body content:
+
+  ```text
+    - 401 Unauthorized:
       {
         "error": "Not authorized"
       }
     - 503 Service Unavailable:
-      { 
+      {
         "error": "Impossible to create the game history."
       }
-    - 200 OK: 
+    - 200 OK:
       {
         "gh_id": 6,
         "score": 10,
@@ -247,13 +324,20 @@
             "score": 5
           }
         ]
-      } 
-  - response status codes and possible errors: `200 OK` (success posting the game history (in details)), `401 Unauthorized` (when user is not logged in), `422 Unprocessable Entity` (validation error), `503 Service Unavailable` (generic error).
+      }
+  ```
+
+  - response status codes and possible errors: `200 OK` (success posting the
+    game history (in details)), `401 Unauthorized` (when user is not logged in),
+    `422 Unprocessable Entity` (validation error), `503 Service Unavailable`
+    (generic error).
 
 - GET `/api/user/:gh_id`: for getting the game history (details)
   - request parameters: the game id as: gh_id
   - response body content:
     - 200 OK:
+
+    ```text
       [
         {
           "round": 1,
@@ -271,82 +355,130 @@
           "score": 0
         }
       ]
-    - 401 Unauthorized: 
+    ```
+
+    - 401 Unauthorized:
+
+    ```text
       {
         "error": "Not authorized"
       }
+    ```
+
     - 503 Service Unavailable:
-      { 
-        "error": "Impossible to retrieve the games." 
+
+    ```text
+      {
+        "error": "Impossible to retrieve the games."
       }
-  - response status codes and possible errors:  `200 OK` (success getting the game history (in details)), `401 Unauthorized` (when user is not logged in), `503 Service Unavailable` (generic error).
+    ```
+
+  - response status codes and possible errors: `200 OK` (success getting the
+    game history (in details)), `401 Unauthorized` (when user is not logged in),
+    `503 Service Unavailable` (generic error).
 
 - PUT `/api/user`: for updating the user data like: name, surname, username.
-  - request parameters: __None__ 
-  - request body content: 
+  - request parameters: **None**
+  - request body content:
+
+  ```text
     {
       "user_id": "1",
       "name": "Alessandri",
       "surname": "Esempio",
       "email": "ale@esempio.com"
     }
+  ```
+
   - response body content:
     - 200 OK:
+
+    ```text
       {
         "user_id": "1",
         "name": "Alessandri",
         "surname": "Esempio",
         "email": "ale@esempio.com"
       }
+    ```
+
     - 404 Not Found:
-      { 
+
+    ```text
+      {
         "error": "User not found"
       }
+    ```
+
     - 500 Internal Server Error:
+
+    ```text
       {
         "error": "Internal server error"
       }
-  - response status codes and possible errors: `200 OK` (success changing user informations), `401 Unauthorized` (when user is not logged in), `404 Not Found` (if the user is not found), `500 Internal Server Error` (generic error).
+    ```
+
+  - response status codes and possible errors: `200 OK` (success changing user
+    informations), `401 Unauthorized` (when user is not logged in),
+    `404 Not Found` (if the user is not found), `500 Internal Server Error`
+    (generic error).
 
 - POST `/api/register`: for postng the user that want to register.
-  - request parameters: __None__ 
+  - request parameters: **None**
   - request body content:
+
+  ```text
     {
       "name": "Alessandro",
       "surname": "Esempio",
       "email": "ale@esempio.com",
       "password": "esempio"
     }
-  - response body content: 
+  ```
+
+  - response body content:
     - 200 OK:
+
+    ```text
       {
         "user_id": 3,
         "name": "Alessandro",
         "surname": "Esempio",
         "email": "ale@esempio.com"
       }
-    - 400 Bad Request: 
-      { 
-        "error": "Email already exists" 
+    ```
+
+    - 400 Bad Request:
+
+    ```text
+      {
+        "error": "Email already exists"
       }
+    ```
+
     - 500 Internal Server Error:
+
+    ```text
       {
         "error": "Internal server error"
       }
-  - response status codes and possible errors: `200 OK` (success regiter user), `400 Bad Request` (email already exists), `404 Not Found` (error registering user), `500 Internal Server Error` (generic error).
+    ```
 
-
-
+  - response status codes and possible errors: `200 OK` (success regiter user),
+    `400 Bad Request` (email already exists), `404 Not Found` (error registering
+    user), `500 Internal Server Error` (generic error).
 
 ## Database Tables
 
-- Table `captions_table` - table for the storing of captions (caption_id, meme_id, text)
-- Table `games_history_table` - table for storing the games history of users (gh_id, user_id, game_date, score)
-- Table `games_table` - table for storing the games history details of users (gh_id, round, meme_url, score)
+- Table `captions_table` - table for the storing of captions (caption_id,
+  meme_id, text)
+- Table `games_history_table` - table for storing the games history of users
+  (gh_id, user_id, game_date, score)
+- Table `games_table` - table for storing the games history details of users
+  (gh_id, round, meme_url, score)
 - Table `memes_table` - table for storing the meme images (meme_id, image_url)
-- Table `users_table` - table for storing users informations (user_id, name, surname, email, password_hash, salt)
-
-
+- Table `users_table` - table for storing users informations (user_id, name,
+  surname, email, password_hash, salt)
 
 ## Screenshots
 
@@ -354,8 +486,7 @@
 
 ![Screenshot2](./client/public/images/memeAppScreen2.png)
 
-
 ## Users Credentials
 
-- email: 'ale@esempio.com', password: 'esempio' 
-- email: 'andre@esempio.com', password: 'esempio' 
+- email: '<ale@esempio.com>', password: 'esempio'
+- email: '<andre@esempio.com>', password: 'esempio'
