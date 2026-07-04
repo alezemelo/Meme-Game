@@ -20,16 +20,21 @@ import API from './API.mjs';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false); 
-  const [message, setMessage] = useState(''); 
-  const [user, setUser] = useState(''); 
+  const [message, setMessage] = useState(null); 
+  const [user, setUser] = useState(null); 
   const videoUrl = '/videos/background.mp4';
 
 
   useEffect(() => {
     const checkAuth = async () => {
-      const user = await API.getUserInfo(); 
-      setLoggedIn(true);
-      setUser(user);
+      try {
+        const user = await API.getUserInfo(); 
+        setLoggedIn(true);
+        setUser(user);
+      } catch {
+        setLoggedIn(false);
+        setUser(null);
+      }
     };
     checkAuth();
   }, []);
@@ -68,7 +73,7 @@ function App() {
   const handleLogout = async () => {
     await API.logOut();
     setLoggedIn(false);
-    setMessage('');
+    setMessage(null);
   };
 
   const createGameHistory = async (score,game) => {
@@ -111,4 +116,3 @@ function App() {
 }
 
 export default App;
-

@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { GameContext } from './GameContext';
@@ -21,7 +22,7 @@ const renderItem = (items) => {
 };
 
 const GameEnd = (props) => {
-    const gameEndImg='/images/meme23.jpg?url'
+    const gameEndImg='/images/meme23.jpg'
     const { gameData, clearGameData, setSelectedCaption } = useContext(GameContext);
     const navigate = useNavigate();
     
@@ -102,6 +103,9 @@ const GameEnd = (props) => {
     );
 };
 
+GameEnd.propTypes = {
+    loggedIn: PropTypes.bool.isRequired,
+    createGameHistory: PropTypes.func.isRequired,
+};
+
 export default GameEnd;
-
-

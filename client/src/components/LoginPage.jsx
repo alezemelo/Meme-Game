@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
@@ -65,7 +66,14 @@ const LoginPage = (props) => {
   );
 };
 
+LoginPage.propTypes = {
+  login: PropTypes.func.isRequired,
+  message: PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    msg: PropTypes.string.isRequired,
+  }),
+  setMessage: PropTypes.func.isRequired,
+};
+
 export default LoginPage;
-
-
 

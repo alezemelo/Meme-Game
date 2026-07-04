@@ -116,9 +116,9 @@ getMeme(meme_id)
 const user_id=1;
 const score=15;
 const game=[
-  {round:1, meme:'/images/meme2.jpg?url', score:0},
-  {round:2, meme:'/images/meme8.jpg?url', score:5},
-  {round:3, meme:'/images/meme10.jpg?url', score:0}
+  {round:1, meme:'/images/meme2.jpg', score:0},
+  {round:2, meme:'/images/meme8.jpg', score:5},
+  {round:3, meme:'/images/meme10.jpg', score:0}
 ]
 createGameHistory(user_id, score, game)
 .then(meme => {
@@ -140,4 +140,3 @@ getGamesByGhId(gh_id)
         console.error('Error getting games data:', err);
     });
 */
-

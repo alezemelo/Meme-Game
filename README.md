@@ -70,7 +70,7 @@
         "memes": [
           {
             "meme_id": 21,
-            "image_url": "/images/meme21.jpg?url",
+            "image_url": "/images/meme21.jpg",
             "captions": [
               {
                 "caption_id": 11,
@@ -120,7 +120,7 @@
         "memes": [
           {
             "meme_id": 4,
-            "image_url": "/images/meme4.jpg?url",
+            "image_url": "/images/meme4.jpg",
             "captions": [
               {
                 "caption_id": 7,
@@ -341,17 +341,17 @@
       [
         {
           "round": 1,
-          "meme_url": "/images/meme8.jpg?url",
+          "meme_url": "/images/meme8.jpg",
           "score": 0
         },
         {
           "round": 2,
-          "meme_url": "/images/meme16.jpg?url",
+          "meme_url": "/images/meme16.jpg",
           "score": 5
         },
         {
           "round": 3,
-          "meme_url": "/images/meme22.jpg?url",
+          "meme_url": "/images/meme22.jpg",
           "score": 0
         }
       ]

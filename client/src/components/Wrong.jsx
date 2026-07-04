@@ -1,5 +1,5 @@
-import React from 'react';
 import { Row,Col, Button } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { GameContext } from './GameContext';
 import { useContext } from 'react';
@@ -61,6 +61,11 @@ const Wrong = (props) => {
         </Row >
       </>
     );
+};
+
+Wrong.propTypes = {
+  loggedIn: PropTypes.bool.isRequired,
+  createGameHistory: PropTypes.func.isRequired,
 };
 
 export default Wrong;

@@ -1,4 +1,5 @@
-import React, { useEffect, useContext } from 'react';
+import { useEffect, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Container, Row, Col, Table, Button, Image, Form } from 'react-bootstrap';
 import { useNavigate, Outlet, useLocation } from 'react-router-dom';
 import { GameContext } from './GameContext';
@@ -21,13 +22,6 @@ const GamePage = (props) => {
   const location = useLocation();
 
   useEffect(() => {
-    const fetchData = async () => {
-      await fetchNewRoundData();
-    };
-    fetchData();
-  }, []);
-
-  useEffect(() => {
     if (gameData.timeLeft > 0) {
       const timerId = setTimeout(() => handleTimeLeft(gameData.timeLeft - 1), 1000);
       return () => clearTimeout(timerId); // clear timeout if the component unmounts or timeLeft changes
@@ -38,7 +32,18 @@ const GamePage = (props) => {
         navigate('/play/timeExpires'); 
       }
     }
-  }, [gameData.timeLeft, navigate, gameData.isSubmitted, handleTimeLeft, changeSubmitted]);
+  }, [
+    gameData.timeLeft,
+    gameData.isSubmitted,
+    gameData.memes,
+    gameData.round,
+    gameData.score,
+    selectedCaption.text,
+    navigate,
+    handleTimeLeft,
+    changeSubmitted,
+    recordWrongCaption,
+  ]);
 
   const handleRowClick = (index) => {
     if (gameData.captions[gameData.round - 1]) {
@@ -222,6 +227,8 @@ const GamePage = (props) => {
   );
 };
 
+GamePage.propTypes = {
+  loggedIn: PropTypes.bool.isRequired,
+};
+
 export default GamePage;
-
-

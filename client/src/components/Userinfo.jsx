@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Container, Row, Col, Table, Form, Button, Alert, Nav, Image } from 'react-bootstrap';
 import API from '../API.mjs';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 
 const UserProfile = (props) => {
-  const userImageUrl = '/images/userNoLogged.jpg?url';
+  const userImageUrl = '/images/userNoLogged.jpg';
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -303,10 +304,17 @@ const UserProfile = (props) => {
   );
 };
 
+UserProfile.propTypes = {
+  user: PropTypes.shape({
+    user_id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    surname: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  }).isRequired,
+  handleUpdate: PropTypes.func.isRequired,
+};
+
 export default UserProfile;
-
-
-
 
 
 

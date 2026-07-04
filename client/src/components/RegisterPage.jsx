@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
@@ -104,8 +105,10 @@ const RegisterPage = (props) => {
   );
 };
 
+RegisterPage.propTypes = {
+  handleRegister: PropTypes.func.isRequired,
+};
+
 export default RegisterPage;
-
-
 
 

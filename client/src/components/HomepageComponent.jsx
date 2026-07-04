@@ -1,10 +1,10 @@
 // HomepageComponent.jsx
-import React from 'react';
+import PropTypes from 'prop-types';
 import { Container, Row, Col, Button, Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const HomepageComponent = (props) => {
-  const logoImageUrl = '/images/logo.png?url';
+  const logoImageUrl = '/images/logo.png';
   const navigate = useNavigate();
 
   return (
@@ -30,10 +30,12 @@ const HomepageComponent = (props) => {
   );
 };
 
+HomepageComponent.propTypes = {
+  loggedIn: PropTypes.bool.isRequired,
+  handleLogout: PropTypes.func.isRequired,
+};
+
 export default HomepageComponent;
-
-
-
 
 
 

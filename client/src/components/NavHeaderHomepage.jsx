@@ -1,11 +1,12 @@
-import React, {useContext} from 'react';
+import {useContext} from 'react';
+import PropTypes from 'prop-types';
 import { Navbar, Container, Nav} from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import { GameContext } from './GameContext';
 
 const NavHeaderHomepage = (props) => {
   const location = useLocation();
-  const logoImageUrl = '/images/logo.png?url';
+  const logoImageUrl = '/images/logo.png';
   
 
   const { 
@@ -27,19 +28,11 @@ const NavHeaderHomepage = (props) => {
   };
 
   const renderLogo = () => {
-
-    if (location.pathname === '/') {
-      return (
-        <>
-        </>
-      );
-    } else {
-      return (
-            <Navbar.Brand className='animate__animated animate__bounceIn'>
-              <img src={logoImageUrl} width="100" height="50" alt="Logo"/>
-            </Navbar.Brand>
-      );
-    }
+    return (
+      <Navbar.Brand className='animate__animated animate__bounceIn'>
+        <img src={logoImageUrl} width="100" height="50" alt="Logo"/>
+      </Navbar.Brand>
+    );
   };
 
   return (
@@ -63,5 +56,9 @@ const NavHeaderHomepage = (props) => {
   );
 };
 
-export default NavHeaderHomepage;
+NavHeaderHomepage.propTypes = {
+  loggedIn: PropTypes.bool.isRequired,
+  createGameHistory: PropTypes.func.isRequired,
+};
 
+export default NavHeaderHomepage;
